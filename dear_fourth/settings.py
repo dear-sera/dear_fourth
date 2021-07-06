@@ -131,6 +131,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#base_dir = dear_fourth 에서 collectstatic로 모인 static파일들을 폴더인 staticfiles 경로에 모은다는 것
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
