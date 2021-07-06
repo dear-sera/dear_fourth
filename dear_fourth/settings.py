@@ -66,7 +66,7 @@ ROOT_URLCONF = 'dear_fourth.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  #템플릿을 만든 경로의 이름을 넣어주면 된다
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
