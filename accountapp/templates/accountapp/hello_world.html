@@ -2,10 +2,31 @@
 
 {% block content %}
 
-    <div style="height: 20rem; background-color: #38df81; border-radius: 1rem; margin: 2rem;">
-        <h1>
-          testing
+    <div style="border-radius: 1rem; margin: 2rem; font-size: 2rem; text-align: center">
+        <h1 style="font-family: 'Yomogi', cursive; ">
+          Hello World LIST!
         </h1>
+        <!--form= 서버한테 보내는 요청 명세서, post를 사용해서 이 주소로 요청을 보낸다-->
+        <form action="/account/hello_world/" method="post">
+            <!--form을 이용할 땐 csrf_token를 꼭 적어야 한다 = 장고 보완 기능 중 하나 -->
+            {% csrf_token %}
+            <div>
+                <!--텍스트상자 타입을 서버로 보내는 것, 텍스트 상자 이름은 name으로 지정-->
+                <input type="text" name="hello_world_input">
+            </div>
+            <div>
+
+            </div>
+            <!--class="btn btn-primary = 부트스트랩에 속해있는 버튼 클래스, value=안에 속하는 값-->
+            <input type="submit" class="btn btn-primary" value="POST">
+        </form>
+
+        <!--hello_world_output이 있다면 태그를 생성-->
+        {% if hello_world_output %}
+        <h1>
+            {{ hello_world_output.text }}
+        </h1>
+            {% endif %}
     </div>
 
 {% endblock %}
