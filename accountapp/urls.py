@@ -3,7 +3,7 @@
 """
 from django.urls import path
 
-from accountapp.views import hello_world
+from accountapp.views import hello_world, AccountCreateView
 
 #이름을 설정하는 이유는 현재 account/hello_world 경로에 접근 할 땐 "127.0.0.1:8000/account/hello_world"라서 이걸 간편식으로 지정
 #추후 "accountapp:hello_world"로 사용가능
@@ -11,5 +11,6 @@ app_name = "accountapp"
 
 urlpatterns = [
     #path다음 첫번째는 경로위치, 두번째는 views에서 만들어준 헬로우월드함수 가져오기, name은 경로에 대한 이름
-    path('hello_world/', hello_world, name='hello_world')
+    path('hello_world/', hello_world, name='hello_world'),
+    path('create/', AccountCreateView.as_view(), name='create'),  #as_view를 넣는 이유는 클래스view를 함수view로 만들어주기 위해서
 ]

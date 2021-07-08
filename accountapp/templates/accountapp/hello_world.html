@@ -21,12 +21,14 @@
             <input type="submit" class="btn btn-primary" value="POST">
         </form>
 
-        <!--hello_world_output이 있다면 태그를 생성-->
-        {% if hello_world_output %}
-        <h1>
-            {{ hello_world_output.text }}
-        </h1>
-            {% endif %}
+        <!--hello_world_list 있다면 태그를 생성-->
+        {% if hello_world_list %}
+            {% for hello_world in hello_world_list %}
+        <h4>
+            {{ hello_world.text }}
+        </h4>
+            {% endfor %}
+        {% endif %}
     </div>
 
 {% endblock %}

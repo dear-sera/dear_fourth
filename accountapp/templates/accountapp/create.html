@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div style="text-align: center">
+        <!--accountapp내부에 create라는 경로로 연결하라는 것-->
+        <form action="{% url 'accountapp:create' %}" method="post">
+            {% csrf_token %}
+            <!--view에서 formclass로 지정한 form을 알아서 사용해준다-->
+            {{ form }}
+            <input type="submit" class="btn btn-primary">
+        </form>
+    </div>
+
+{% endblock %}
