@@ -9,8 +9,9 @@ from django.shortcuts import render
 
 #시범삼아 헬로우월드만 나오게 함수 설정
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView
 
+from accountapp.forms import AccountUpdateForm
 from accountapp.models import HelloWorld
 
 
@@ -45,3 +46,9 @@ class AccountDetailView(DetailView):
     context_object_name = 'target_user'  #다른 사람이 페이지에 접속할 땐 mypage가 보이지 않게
     template_name = 'accountapp/detail.html'
 
+
+class AccountUpdateView(UpdateView):  #계정의 정보를 업데이트 해주는 클래스
+    model = User
+    form_class = AccountUpdateForm   #업데이트 시 아이디를 고정(비활성화)해놓은 form으로 지정
+    success_url = reverse_lazy('accountapp:hello_world')
+    template_name = 'accountapp/update.html'
