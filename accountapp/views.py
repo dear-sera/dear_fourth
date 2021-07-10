@@ -9,7 +9,7 @@ from django.shortcuts import render
 
 #시범삼아 헬로우월드만 나오게 함수 설정
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 
 from accountapp.models import HelloWorld
 
@@ -38,3 +38,10 @@ class AccountCreateView(CreateView):  #계정을 만드는 클래스 생성, 아
     form_class = UserCreationForm   #user모델을 만드는 데 필요한 폼, 장고에서 기본 폼을 제공해준다
     success_url = reverse_lazy('accountapp:hello_world')  #가입에 성공했을 때, 어디 경로로 다시 재연결을 할 것인지, reverse와 비슷하지만 class에서 사용이 가능
     template_name = 'accountapp/create.html'  #회원가입 시 html경로 설정
+
+
+class AccountDetailView(DetailView):
+    model = User
+    context_object_name = 'target_user'  #다른 사람이 페이지에 접속할 땐 mypage가 보이지 않게
+    template_name = 'accountapp/detail.html'
+

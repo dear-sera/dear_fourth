@@ -13,8 +13,11 @@
             <a href="{% url 'accountapp:login' %}?next={{ request.path }}">
                 <span>Login</span>
             </a>
-            <!--user가 로그인이 되어있다면 logout 보여주기-->
+            <!--user가 로그인이 되어있다면 mypage와 logout 보여주기-->
             {% else %}
+            <a href="{% url 'accountapp:detail' pk=user.pk %}">
+                <span>MyPage</span>
+            </a>
             <a href="{% url 'accountapp:logout' %}?next={{ request.path }}">
                 <span>Logout</span>
             </a>

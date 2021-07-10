@@ -4,7 +4,7 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 
-from accountapp.views import hello_world, AccountCreateView
+from accountapp.views import hello_world, AccountCreateView, AccountDetailView
 
 #이름을 설정하는 이유는 현재 account/hello_world 경로에 접근 할 땐 "127.0.0.1:8000/account/hello_world"라서 이걸 간편식으로 지정
 #추후 "accountapp:hello_world"로 사용가능
@@ -20,4 +20,6 @@ urlpatterns = [
 
 
     path('create/', AccountCreateView.as_view(), name='create'),  #as_view를 넣는 이유는 클래스view를 함수view로 만들어주기 위해서
+    #<int:pk> = 유저의 정보를 보기 위해서 특정 유저의 primary key(고유번호)가 필요해 몇번 유저의 번호에 접근할 것인지 설정
+    path('detail/<int:pk>', AccountDetailView.as_view(), name='detail'),
 ]
