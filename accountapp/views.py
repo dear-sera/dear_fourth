@@ -49,6 +49,7 @@ class AccountDetailView(DetailView):
 
 class AccountUpdateView(UpdateView):  #계정의 정보를 업데이트 해주는 클래스
     model = User
+    context_object_name = 'target_user'
     form_class = AccountUpdateForm   #업데이트 시 아이디를 고정(비활성화)해놓은 form으로 지정
     success_url = reverse_lazy('accountapp:hello_world')
     template_name = 'accountapp/update.html'
@@ -56,5 +57,6 @@ class AccountUpdateView(UpdateView):  #계정의 정보를 업데이트 해주�
 
 class AccountDeleteView(DeleteView):
     model = User
+    context_object_name = 'target_user'
     success_url = reverse_lazy('accountapp:login')  #delete 후에 로그인 html으로 이동
     template_name = 'accountapp/delete.html'

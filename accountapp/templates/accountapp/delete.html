@@ -8,7 +8,7 @@
             <h4>Quit</h4>
         </div>
         <!--accountapp내부에 create라는 경로로 연결하라는 것-->
-        <form action="{% url 'accountapp:delete' pk=user.pk %}" method="post">
+        <form action="{% url 'accountapp:delete' pk=target_user.pk %}" method="post">
             {% csrf_token %}
             <input type="submit" class="btn btn-danger rounded-pill col-6 mt-4">
         </form>
