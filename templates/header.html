@@ -8,10 +8,13 @@
             <span>nav2</span>
             <span>nav3</span>
 
-            <!--user가 로그인이 되어있지 않다면 login 보여주기, next로 get방식을 이용해 로그인 후 다시 원래 페이지로 돌아오게 한다-->
+            <!--user가 로그인이 되어있지 않다면 login, 회원가입 보여주기, next로 get방식을 이용해 로그인 후 다시 원래 페이지로 돌아오게 한다-->
             {% if not user.is_authenticated %}
             <a href="{% url 'accountapp:login' %}?next={{ request.path }}">
                 <span>Login</span>
+            </a>
+            <a href="{% url 'accountapp:create' %}">
+                <span>SignUp</span>
             </a>
             <!--user가 로그인이 되어있다면 mypage와 logout 보여주기-->
             {% else %}

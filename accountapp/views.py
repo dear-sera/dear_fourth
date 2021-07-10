@@ -9,7 +9,7 @@ from django.shortcuts import render
 
 #시범삼아 헬로우월드만 나오게 함수 설정
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, DetailView, UpdateView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from accountapp.forms import AccountUpdateForm
 from accountapp.models import HelloWorld
@@ -52,3 +52,9 @@ class AccountUpdateView(UpdateView):  #계정의 정보를 업데이트 해주�
     form_class = AccountUpdateForm   #업데이트 시 아이디를 고정(비활성화)해놓은 form으로 지정
     success_url = reverse_lazy('accountapp:hello_world')
     template_name = 'accountapp/update.html'
+
+
+class AccountDeleteView(DeleteView):
+    model = User
+    success_url = reverse_lazy('accountapp:login')  #delete 후에 로그인 html으로 이동
+    template_name = 'accountapp/delete.html'
