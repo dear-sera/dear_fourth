@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4',  #부트스트랩 폼을 이용하기 위해 설치 후 작성
     'accountapp',  #새로 설치된 앱을 여기에 명시해야 앱이 적용이 된다
 ]
 
