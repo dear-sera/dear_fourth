@@ -5,29 +5,38 @@
   <div>
     <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
 
-      <!--닉네임에 지정된 프로필 이미지 띄우기-->
+
+      {% if target_user.profile %}
+            <!--닉네임에 지정된 프로필 이미지 띄우기-->
       <img src="{{ target_user.profile.image.url }}" alt=""
            style="height: 12rem; width: 12rem; border-radius: 20rem; margin-bottom: 2rem;">
-
-      {% if target_user.profile.nickname %}
       <h2 style="font-family: 'NanumSquareB'">
         {{ target_user.profile.nickname }}
-        <!--닉네임 변경을 원할 시 경로를 알려줄 앨커-->
-        <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
-          edit
-        </a>
+          {% if target_user == user %}
+          <!--닉네임 변경을 원할 시 경로를 알려줄 앨커-->
+          <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+            edit
+          </a>
+          {% endif %}
       </h2>
-      {% else %}
-      <a href="{% url 'profileapp:create' %}">
-      <h2 style="font-family: 'NanumSquareB'">
-        Create Profile
-      </h2>
-      </a>
-      {% endif %}
-
-      <h5 style="margin-bottom: 3rem;">
+            <h5 style="margin-bottom: 3rem;">
         {{ target_user.profile.message }}
       </h5>
+      {% else %}
+        {% if target_user == user %}
+        <a href="{% url 'profileapp:create' %}">
+        <h2 style="font-family: 'NanumSquareB'">
+          Create Profile
+        </h2>
+        </a>
+      {% else %}
+      <h2>
+        <!--로그아웃 시 mypage에 들어가면 닉네임 미설정이 뜨게 된다-->
+        닉네임 미설정
+      </h2>
+        {% endif %}
+      {% endif %}
+
 
       <!--타겟 유저와 현재 접속한 유저가 같다면-->
       {% if target_user == user %}
