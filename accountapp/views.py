@@ -45,7 +45,7 @@ def hello_world(request):
         return render(request, 'accountapp/hello_world.html', context={'hello_world_list': hello_world_list})
 
 
-
+#계정을 만드는 함수
 class AccountCreateView(CreateView):  #계정을 만드는 클래스 생성, 아래 파라미터가 들어간다
     model = User  #User = 장고에서 기본 제공해주는 모델, ctrl+b를 누르면 소스코드로 넘어가진다
     form_class = UserCreationForm   #user모델을 만드는 데 필요한 폼, 장고에서 기본 폼을 제공해준다
@@ -53,14 +53,14 @@ class AccountCreateView(CreateView):  #계정을 만드는 클래스 생성, 아
     template_name = 'accountapp/create.html'  #회원가입 시 html경로 설정
 
 
-
+#계정의 정보를 보는 함수
 class AccountDetailView(DetailView):
     model = User
     context_object_name = 'target_user'  #다른 사람이 페이지에 접속할 땐 mypage가 보이지 않게
     template_name = 'accountapp/detail.html'
 
 
-
+#계정 업데이트 함수
 #method_decorator= 일반 함수에 사용하는 decorator를 메서드에 사용할 수 있도록 해주는 decorator
 @method_decorator(has_ownership, 'get')  #매개변수 첫번째는 사용할 decorator을 넣고, 두번째는 메소드 방식을 넣어준다
 @method_decorator(has_ownership, 'post')
@@ -72,7 +72,7 @@ class AccountUpdateView(UpdateView):  #계정의 정보를 업데이트 해주�
     template_name = 'accountapp/update.html'
 
 
-
+#계정 삭제 함수
 @method_decorator(has_ownership, 'get')
 @method_decorator(has_ownership, 'post')
 class AccountDeleteView(DeleteView):
