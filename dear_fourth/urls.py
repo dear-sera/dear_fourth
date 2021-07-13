@@ -25,6 +25,8 @@ urlpatterns = [
     # path= 이 앱으로 이동시켜준다, include=accountapp앱 내부에 있는 urls.py를 포함해서 그 하위 디렉토리로 분기하라는 것
     path('accounts/', include('accountapp.urls')),
     path('profiles/', include('profileapp.urls')),
+    path('articles/', include('articleapp.urls')),
+
 
 #settings.py안에 있는 값들을 가져올 수 있다, 미디어 폴더 안 사진들의 경로를 불러준다 (이래야 이미지를 서버에서 볼 수 있다)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
