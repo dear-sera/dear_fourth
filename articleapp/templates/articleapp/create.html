@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+    <div style="text-align: center; max-width: 500px; margin: 4rem auto">
+        <div class="mb-4">
+            <h4>Article Create</h4>
+        </div>
+        <!--accountapp내부에 create라는 경로로 연결하라는 것-->
+        <form action="{% url 'articleapp:create' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!--view에서 formclass로 지정한 form을 알아서 사용해준다-->
+            {% bootstrap_form form %}
+            <input type="submit" class="btn btn-dark rounded-pill col-6 mt-4">
+        </form>
+    </div>
+
+{% endblock %}
