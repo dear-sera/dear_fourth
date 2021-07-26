@@ -64,5 +64,5 @@ class ArticleListView(ListView):
     model = Article
     context_object_name = 'article_list'
     template_name = 'articleapp/list.html'
-    paginate_by = 5  #페이지 별 25객체를 보여준다
+    paginate_by = 6  #페이지 별 25객체를 보여준다
 

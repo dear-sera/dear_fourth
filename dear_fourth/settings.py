@@ -38,7 +38,7 @@ SECRET_KEY = env('SECRET_KEY')  #시크릿키를 보호하기 위해 .env파일�
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

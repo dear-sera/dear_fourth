@@ -4,10 +4,19 @@
 {% block content %}
 
 <style>
+    <!--기본 부트스트랩에 내장된 패딩과 마진을 0으로 해서 중앙정렬로 사이즈 조정-->
+    .container {
+       padding: 0;
+       margin: 0, auto;
+    }
+
+    <!--모바일에서는 45% 크기, 데스크탑에서는 250픽셀 크기-->
+    .container a {
+       width: 45%;
+       max-width: 250px;
+    }
 
     .container div {
-      width: 250px;
-      background-color: antiquewhite;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -39,7 +48,7 @@
     {% include 'snippets/pagination.html' with page_obj=page_obj %}
 
     <div style="text-align: center">
-        <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill col-3 mt-3 mb-3">
+        <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill mt-3 mb-3 px-3">
           Create Article
         </a>
     </div>

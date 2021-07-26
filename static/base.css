@@ -21,3 +21,11 @@
 a {
 text-decoration: none;
 }
+
+
+/* 500px보다 사이즈가 작아지면 {}안에 내용이 수행된다 */
+@media screen and (max-width:500px) {
+    html {
+        font-size: 13px;
+    }
+}
