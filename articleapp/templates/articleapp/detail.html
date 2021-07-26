@@ -31,6 +31,13 @@
       </a>
       {% endif %}
       <hr>
+      <!--target_article의 fk로 엮인 코맨트들을 for문을 돌려 가져온다 -->
+      {% for comment in target_article.comment.all %}
+        <!--comment에 들어있는 내용을 for문으로 다 가져오는데 안에는 comment이름으로 접근 가능하게 comment를 넣어준다-->
+        {% include 'commentapp/detail.html' with comment=comment %}
+      {% endfor %}
+
+      {% include 'commentapp/create.html' with article=target_article %}
 
     </div>
   </div>

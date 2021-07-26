@@ -26,6 +26,7 @@ urlpatterns = [
     path('accounts/', include('accountapp.urls')),
     path('profiles/', include('profileapp.urls')),
     path('articles/', include('articleapp.urls')),
+    path('comments/', include('commentapp.urls')),
 
 
 #settings.py안에 있는 값들을 가져올 수 있다, 미디어 폴더 안 사진들의 경로를 불러준다 (이래야 이미지를 서버에서 볼 수 있다)

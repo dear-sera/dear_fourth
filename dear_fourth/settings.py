@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'accountapp',  #새로 설치된 앱을 여기에 명시해야 앱이 적용이 된다
     'profileapp',
     'articleapp',
+    'commentapp',
 ]
 
 MIDDLEWARE = [

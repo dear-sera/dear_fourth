@@ -1,0 +1,17 @@
+
+<!--border: 1px solid= 외각선의 형태의 굵기-->
+<div style="border: 1px solid; text-align: left">
+    <div>
+        <!-- <strong> 요소는 콘텐츠 자체의 중요성을 강조할 때 사용-->
+        <strong>
+            <!--게시글 작성자의 프로필에서 닉네임을 가져오기-->
+            {{ comment.writer.profile.nickname }}
+        </strong>
+        <!--&nbsp=띄어쓰기-->
+        &nbsp&nbsp&nbsp
+        {{ comment.created_at }}
+    </div>
+    <div>
+        {{ comment.content }}
+    </div>
+</div>
